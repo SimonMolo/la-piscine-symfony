@@ -1,0 +1,22 @@
+{% extends "base.html.twig"%}
+{# j'étend mon fichier base.html.twig pour que mon squelette se mette en place sur ma page#} %}
+{% block title %} Mon titre {% endblock title %}
+{# je modifie mon titre entre les deux balises pour appliquer ma modification dans la page #}
+<main>
+{% block main %}
+    {#une fois que j'ouvre ma balise main je peut modifier le contenu du body de ma page  #}
+    {# la fonction isPublished sert a verifier grace a un Booléen si l'article est publié ou non #}
+    <body>
+
+        {% if article.isPublished %}
+          <h1> {{ article.title }}</h1>
+          <p> {{ article.content }}</p>
+          <img src="{{ article.image }}">
+
+
+        {% endif %}
+
+    </body>
+    {# je referme ma balise main  #}
+{% endblock main %}
+</main>

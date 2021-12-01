@@ -1,0 +1,39 @@
+{# je créée le squelette de ma page en inserant des balises {% bloc%}{% endblock%} aux endroits suceptibles d'etres modifiés au cours des pages #}
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {% block title %}{% endblock title %} </title>
+    {# je lie Mon fichier Css pour pouvoir ajouter du style a mon fichier Twig #}
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
+</head>
+<header class="header">
+    <nav>
+        <ul class="flex">
+            <li>
+                {# dans mes liens, j'ouvre deux accolades qui est la meme chose qu'un "echo" #}
+                <a href="{{ path('home') }}">Home</a>
+            </li>
+            <li>
+                <a href="{{ path('articles') }}">Articles</a>
+            </li>
+
+        </ul>
+    </nav>
+    </header>
+    <main>
+        {% block main %}
+{# ici j'indique a ma page que je pourrais modifier le contenu de mes pages html a l'interieur de mes balises block main #}
+
+        {% endblock main %}
+    </main>
+    <footer class="footer">
+        <a classe="btnFooter" href="#">retour haut de page</a>
+    </footer>
+

@@ -1,0 +1,22 @@
+{% include("_header.html.twig") %}
+<main>
+    {# la propriété isPublished sert a verifier grace a un Booléen si l'article est publié ou non #}
+    {# on cherche a afficher la liste en entier donc je crée une boucle for qui passe sur tous les elements de mon tableau articles #}
+    <body>
+    <article class="center">
+        {% for article in articlesList %}
+            {% if article.isPublished %}
+                <h1> {{ article.title }}</h1>
+                <p> {{ article.content }}</p>
+                <img src="{{ article.image }}">
+
+                {# je rajoute un lien qui s'affichera sur la page de mes articles, lorsque je clique dessus, la fonction "path" s'execute #}
+                {# grace a une conquéténation, l'url m'affiche la page d'un seul article en appliquant l'id a la suite de la page demandée  #}
+                <br>
+                <a class="btn" href="{{ path('article_show', {"id":article.id}) }}">Voir Plus</a>
+            {% endif %}
+        {% endfor %}
+    </article>
+    </body>
+</main>
+{% include("_footer.html.twig") %}
